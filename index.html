@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ambulance</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+  <header id="home">
+    <video  autoplay="true" loop class="video-background"  play-inline>
+      <source src="assets/images/landing.mp4" type="video/mp4">
+      </video>
+    </header>
+    <nav class="navbar navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="navbar-brand logo">
+          </span>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="#home">HOME</a></li>
+            <li><a href="#ambulance">AMBULANCE</a></li>
+            <li><a href="#patient">PATIENT</a></li>
+            <li><a href="#non_medical">NON_MEDICAL</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="jumbotron text-center head-text"  style="background-color:transparent">
+    </div>
+    <section id="ambulance">
+      <div>
+        <h1 class="text-center">How To Track Ambulance</h1>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6 body-data">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias earum harum praesentium, repellendus nesciunt rem optio omnis, unde enim doloremque provident, totam! Sequi, veritatis, quo blanditiis nostrum numquam tempore dolor!
+            </div>
+            <div class="col-md-6"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="patient">
+      <div>
+        <h1 class="text-center">How To Find Patient</h1>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6 body-data">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias earum harum praesentium, repellendus nesciunt rem optio omnis, unde enim doloremque provident, totam! Sequi, veritatis, quo blanditiis nostrum numquam tempore dolor!
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="non_medical">
+      <div>
+        <h1 class="text-center">Non-Medical Problem</h1>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6 body-data">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias earum harum praesentium, repellendus nesciunt rem optio omnis, unde enim doloremque provident, totam! Sequi, veritatis, quo blanditiis nostrum numquam tempore dolor!
+            </div>
+            <div class="col-md-6"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script type="text/javascript">
+      function smoothScroll(e){
+    e.preventDefault();    
+    // $()outside to capture the dom element
+    const target = $($(this).attr('href'));
+    $('html,body').animate({
+        scrollTop:target.offset().top
+    },700,function() {
+          // Callback after animation
+          // Must change focus!
+          target.focus();
+          if (target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            target.focus(); // Set focus again
+          };
+        });
+}
+
+
+
+
+$("#myNavbar a").on('click',smoothScroll);
+$(".navbar-brand a").on('click',smoothScroll);
+
+
+        $(document).scroll(function(){
+        $(".navbar").toggleClass("nav-small",$(this).scrollTop()>100);
+        $(".logo-image").toggleClass("logo-image2",$(this).scrollTop()>100);
+        $(".a1").toggleClass("a2",$(this).scrollTop()>100);
+        });
+        $(function() {
+        $('.material-card > .mc-btn-action').click(function () {
+        var card = $(this).parent('.material-card');
+        var icon = $(this).children('i');
+        icon.addClass('fa-spin-fast');
+        if (card.hasClass('mc-active')) {
+        card.removeClass('mc-active');
+        window.setTimeout(function() {
+        icon
+        .removeClass('fa-arrow-left')
+        .removeClass('fa-spin-fast')
+        .addClass('fa-bars');
+        }, 800);
+        } else {
+        card.addClass('mc-active');
+        window.setTimeout(function() {
+        icon
+        .removeClass('fa-bars')
+        .removeClass('fa-spin-fast')
+        .addClass('fa-arrow-left');
+        }, 800);
+        }
+        });
+        });
+    </script>
+  </body>
